@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Aurum Lanka    </title>
+    <meta name="description"
+        content="Discover handpicked tours and travel packages designed for the modern explorer. Unforgettable destinations, seamless booking.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            Aurum Lanka        </a>
+        <ul class="nav-links">
+            <li><a href="#experiences">Experiences</a></li>
+            <li><a href="#tours">Tours</a></li>
+            <li><a href="#about">Why Us</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact" class="nav-cta">Book Now</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger"><i class="fa fa-bars"></i></button>
+        <nav class="nav-mobile" id="navMobile">
+            <a href="#" onclick="closeMenu()"><i class="fa fa-times"
+                    style="position:absolute;top:1.5rem;right:1.5rem;cursor:pointer;font-size:1.5rem;"></i></a>
+            <a href="#experiences" onclick="closeMenu()">Experiences</a>
+            <a href="#tours" onclick="closeMenu()">Tours</a>
+            <a href="#about" onclick="closeMenu()">Why Us</a>
+            <a href="#testimonials" onclick="closeMenu()">Reviews</a>
+            <a href="#contact" onclick="closeMenu()" style="color:var(--gold)!important">Book Now</a>
+        </nav>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-tag"><i class="fa fa-star"></i> Award-Winning Travel Agency</div>
+            <h1>Travel Beyond<br><em>The Ordinary</em></h1>
+            <p>Immersive tours crafted by local experts. Unparalleled destinations, seamless journeys, lifelong
+                memories.</p>
+            <div class="hero-actions">
+                <a href="#tours" class="btn-primary"><i class="fa fa-compass"></i> Browse Tours</a>
+                <a href="#contact" class="btn-ghost"><i class="fa fa-phone-volume"></i> Talk to an Expert</a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span class="line"></span> Scroll to explore
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-number">12K+</div>
+                <div class="stat-label">Happy Travelers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">85+</div>
+                <div class="stat-label">Destinations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15Y</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9★</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES / EXPERIENCES -->
+    <section class="section features-section" id="experiences">
+        <div class="section-inner">
+            <div class="section-head-row">
+                <div>
+                    <div class="section-label">What We Offer</div>
+                    <h2 class="section-title">Experiences Built<br>Around You</h2>
+                </div>
+                <p class="section-subtext">We design every journey around your unique tastes — from solo backpacker
+                    adventures to luxury honeymoon retreats.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa fa-map-location-dot"></i></div>
+                    <div class="feature-title">Custom Itineraries</div>
+                    <div class="feature-desc">Every trip is tailor-made. We work with you to design routes, activities,
+                        and stays that match your timeline and budget perfectly.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa fa-shield-halved"></i></div>
+                    <div class="feature-title">Safe &amp; Verified</div>
+                    <div class="feature-desc">All our guides and partners are vetted. Travel with full confidence
+                        knowing every detail has been planned down to the last mile.</div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fa fa-headset"></i></div>
+                    <div class="feature-title">24/7 Concierge</div>
+                    <div class="feature-desc">Our travel experts are available around the clock. Wherever you are in the
+                        world, help is always just a message away.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOURS -->
+    <section class="section tours-section" id="tours">
+        <div class="section-inner">
+            <div class="section-head-row">
+                <div>
+                    <div class="section-label">Our Packages</div>
+                    <h2 class="section-title">Handpicked Tours &amp;<br>Travel Packages</h2>
+                </div>
+                <a href="#contact" class="btn-primary" style="white-space:nowrap"><i class="fa fa-envelope"></i> Request
+                    Custom Tour</a>
+            </div>
+
+            <div class="tours-grid">
+                                                <div class="tour-card">
+                    <div class="tour-img-wrap">
+                        <img src="uploads/69de690678ee8.jpeg" alt="Sigriya package" class="tour-img"
+                            loading="lazy">
+                        <span class="tour-badge">
+                            Bestseller                        </span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-meta">
+                            <div class="tour-meta-item"><i class="fa fa-star"></i> 4.8 (120 reviews)</div>
+                            <div class="tour-meta-item"><i class="fa fa-clock"></i> 7 Days</div>
+                        </div>
+                        <h3 class="tour-name">
+                            Sigriya package                        </h3>
+                        <p class="tour-desc">
+                            test                        </p>
+                        <div class="tour-footer">
+                            <div class="tour-price">
+                                $
+                                1,900 <span>/ person</span>
+                            </div>
+                            <button class="tour-btn"
+                                onclick="prefillAndScroll('Sigriya package')">
+                                Enquire <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                                <div class="tour-card">
+                    <div class="tour-img-wrap">
+                        <img src="uploads/69db46496c7da.jpeg" alt="Yala pacakge" class="tour-img"
+                            loading="lazy">
+                        <span class="tour-badge">
+                            Top Rated                        </span>
+                    </div>
+                    <div class="tour-body">
+                        <div class="tour-meta">
+                            <div class="tour-meta-item"><i class="fa fa-star"></i> 4.8 (120 reviews)</div>
+                            <div class="tour-meta-item"><i class="fa fa-clock"></i> 7 Days</div>
+                        </div>
+                        <h3 class="tour-name">
+                            Yala pacakge                        </h3>
+                        <p class="tour-desc">
+                            yala                        </p>
+                        <div class="tour-footer">
+                            <div class="tour-price">
+                                $
+                                20,000 <span>/ person</span>
+                            </div>
+                            <button class="tour-btn"
+                                onclick="prefillAndScroll('Yala pacakge')">
+                                Enquire <i class="fa fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                                            </div>
+        </div>
+    </section>
+
+    <!-- WHY US STRIP -->
+    <section class="experience-section" id="about">
+        <div class="experience-inner">
+            <div class="experience-text">
+                <h2>More Than a Trip — A Transformation</h2>
+                <p>We believe travel has the power to change perspectives. Our expert team builds experiences that go
+                    beyond sightseeing — connecting you with local culture, cuisine, and communities.</p>
+                <ul class="exp-list">
+                    <li><i class="fa fa-check"></i> Locally-led, culturally immersive experiences</li>
+                    <li><i class="fa fa-check"></i> Small group sizes for authentic connection</li>
+                    <li><i class="fa fa-check"></i> Eco-conscious, responsible travel practices</li>
+                    <li><i class="fa fa-check"></i> Flexible booking &amp; money-back guarantee</li>
+                </ul>
+                <a href="#contact" class="btn-dark"><i class="fa fa-arrow-right"></i> Plan My Trip</a>
+            </div>
+            <div style="position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;">
+                <img src="metrialimg/IMG-20260414-WA0053.jpg" style="width:100%;height:100%;object-fit:cover;"
+                    alt="Travel experience">
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section" id="testimonials">
+        <div class="section-inner">
+            <div class="section-head-row">
+                <div>
+                    <div class="section-label">Traveler Stories</div>
+                    <h2 class="section-title">What Our Guests Say</h2>
+                </div>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-quote">"VoyageX turned our honeymoon into the most magical week of our lives. Every
+                        detail was perfect — from the hidden beach to the rooftop dinner. Absolutely flawless."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">SL</div>
+                        <div>
+                            <div class="testi-name">Sarah &amp; Luke</div>
+                            <div class="testi-location">Bali Honeymoon Package</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-quote">"The Himalayan trek was life-changing. Our guide was knowledgeable, patient,
+                        and always made us feel safe. I've booked three trips since and each one has been exceptional."
+                    </p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">MK</div>
+                        <div>
+                            <div class="testi-name">Marcus K.</div>
+                            <div class="testi-location">Nepal Adventure Trek</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testi-stars">★★★★★</div>
+                    <p class="testi-quote">"As a solo traveler, I was nervous about joining a group tour. VoyageX made
+                        me feel welcome instantly. The connections I made and places I saw were beyond anything I
+                        imagined."</p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">AP</div>
+                        <div>
+                            <div class="testi-name">Amelia P.</div>
+                            <div class="testi-location">Southeast Asia Explorer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / INQUIRY -->
+    <section class="section contact-section" id="contact">
+        <div class="section-inner">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="section-label">Contact Us</div>
+                    <h2>Let's Plan Your<br>Perfect <em style="font-style:italic;color:var(--gold)">Adventure</em></h2>
+                    <p>Fill out the form and one of our travel specialists will be in touch within 24 hours to start
+                        crafting your custom itinerary.</p>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <div class="contact-card-icon"><i class="fa fa-envelope"></i></div>
+                            <div>
+                                <div class="contact-card-label">Email</div>
+                                <div class="contact-card-value">hello@voyagex.travel</div>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-card-icon"><i class="fa fa-phone"></i></div>
+                            <div>
+                                <div class="contact-card-label">Phone</div>
+                                <div class="contact-card-value">+1 (800) 555-TOUR</div>
+                            </div>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-card-icon"><i class="fa fa-clock"></i></div>
+                            <div>
+                                <div class="contact-card-label">Support Hours</div>
+                                <div class="contact-card-value">24 / 7 — Always Available</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inquiry-form">
+                    <h3>Send an Inquiry</h3>
+                    <p class="form-sub">We respond within 24 hours. No spam, ever.</p>
+                    <form id="leadForm">
+                        <div class="field-row">
+                            <div class="field">
+                                <label>Full Name *</label>
+                                <input type="text" id="f_name" placeholder="Jane Smith" required>
+                            </div>
+                            <div class="field">
+                                <label>Phone Number *</label>
+                                <input type="tel" id="f_mobile" placeholder="+1 555 000 0000" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Email Address *</label>
+                            <input type="email" id="f_email" placeholder="jane@example.com" required>
+                        </div>
+                        <div class="field-row">
+                            <div class="field" style="margin-bottom:0">
+                                <label>City</label>
+                                <input type="text" id="f_city" placeholder="New York">
+                            </div>
+                            <div class="field" style="margin-bottom:0">
+                                <label>Country</label>
+                                <input type="text" id="f_country" placeholder="United States">
+                            </div>
+                        </div>
+                        <div class="field" style="margin-top:1rem">
+                            <label>Interested In</label>
+                            <select id="f_interest">
+                                <option value="">Select a tour type...</option>
+                                                                <option value="5">
+                                    Sigriya package                                </option>
+                                                                <option value="4">
+                                    Yala pacakge                                </option>
+                                                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Your Message</label>
+                            <textarea id="f_message"
+                                placeholder="Tell us about your dream trip, dates, budget or any questions..."></textarea>
+                        </div>
+                        <div class="submit-row">
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <i class="fa fa-paper-plane"></i> Send My Inquiry
+                            </button>
+                        </div>
+                        <div class="form-feedback" id="formFeedback"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">VoyageX</div>
+            <div class="footer-copy">&copy;
+                2026                Aurum Lanka. All rights reserved.
+            </div>
+            <div class="footer-socials">
+                <a class="footer-social" href="#"><i class="fab fa-instagram"></i></a>
+                <a class="footer-social" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="footer-social" href="#"><i class="fab fa-youtube"></i></a>
+                <a class="footer-social" href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const API_KEY = "948645d2e8e3bf53323bdc74511f645d868292b3b444ef93d6f7032ae591a091";
+        const API_URL = "/api/leads.php";
+
+        // Sticky Navbar
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Hamburger menu
+        document.getElementById('hamburger').addEventListener('click', () => {
+            document.getElementById('navMobile').classList.toggle('open');
+        });
+        function closeMenu() {
+            document.getElementById('navMobile').classList.remove('open');
+        }
+
+        // Prefill form on tour click
+        function prefillAndScroll(tourName) {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            const msg = document.getElementById('f_message');
+            if (msg) msg.value = `I am interested in the "${tourName}" package. Please send me more details and availability.`;
+        }
+
+        // Form submission
+        document.getElementById('leadForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            if (!API_KEY) {
+                showFeedback('System error: API not configured. Please contact us directly.', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            const orig = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+
+            const interestSelect = document.getElementById('f_interest');
+            const interestId = interestSelect.value;
+            const interestText = interestId ? interestSelect.options[interestSelect.selectedIndex].text : '';
+            const baseMsg = document.getElementById('f_message').value.trim();
+            const message = interestText ? `[Interested in: ${interestText}]\n${baseMsg}` : baseMsg;
+
+            const payload = {
+                name: document.getElementById('f_name').value.trim(),
+                email: document.getElementById('f_email').value.trim(),
+                mobile: document.getElementById('f_mobile').value.trim(),
+                city: document.getElementById('f_city').value.trim(),
+                country: document.getElementById('f_country').value.trim(),
+                message,
+                source: 'website',
+                status: 'new',
+                product_id: interestId ? parseInt(interestId) : null
+            };
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-API-Key': API_KEY },
+                    body: JSON.stringify(payload)
+                });
+                const result = await res.json();
+                if (result.success) {
+                    showFeedback('🎉 Thank you! We\'ll reach out within 24 hours to start planning your adventure.', 'success');
+                    this.reset();
+                } else {
+                    showFeedback(result.message || 'Something went wrong. Please try again.', 'error');
+                }
+            } catch {
+                showFeedback('Network error. Please check your connection and try again.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = orig;
+            }
+        });
+
+        function showFeedback(msg, type) {
+            const el = document.getElementById('formFeedback');
+            el.textContent = msg;
+            el.className = 'form-feedback ' + type;
+            el.style.display = 'block';
+            if (type === 'success') setTimeout(() => el.style.display = 'none', 7000);
+        }
+    </script>
+</body>
+
+</html>
