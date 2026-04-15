@@ -23,7 +23,7 @@
 /* 1. Define the font face */
 @font-face {
     font-family: 'SephoraHayden';
-    src: url('/fonts/SephoraHayden.ttf') format('truetype'); /* Path to your file */
+    src: url('../fonts/SephoraHayden.ttf') format('truetype'); /* Path to your file */
 }
 
   html {
