@@ -131,6 +131,8 @@
       background:
           linear-gradient(to bottom, rgba(10, 12, 16, 0.55) 0%, rgba(10, 12, 16, 0.2) 50%, rgba(10, 12, 16, 0.85) 100%),
           url('../metrialimg/IMG-20260414-WA0058.jpg') center/cover no-repeat;
+           filter: brightness(0.7)  contrast(1.1);
+     
   }
 
   .hero-content {
