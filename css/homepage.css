@@ -20,6 +20,11 @@
       padding: 0;
       box-sizing: border-box;
   }
+/* 1. Define the font face */
+@font-face {
+    font-family: 'SephoraHayden';
+    src: url('/fonts/SephoraHayden.ttf') format('truetype'); /* Path to your file */
+}
 
   html {
       scroll-behavior: smooth;
@@ -55,12 +60,13 @@
   }
 
   .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
+      font-family: SephoraHayden;
+      font-size: 2.5rem;
       font-weight: 800;
       color: var(--gold);
       text-decoration: none;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.05em;
+       
   }
 
   .nav-links {
@@ -158,6 +164,7 @@
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
+      margin-top: 80px;
   }
 
   .hero h1 em {
