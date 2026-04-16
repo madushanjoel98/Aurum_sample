@@ -60,12 +60,13 @@
   }
 
   .nav-logo {
-      font-family: SephoraHayden;
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--gold);
-      text-decoration: none;
-      letter-spacing: -0.05em;
+    
+        font-family: SephoraHayden;
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: var(--gold);
+        text-decoration: none;
+        letter-spacing: -0.05em;
        
   }
 
@@ -132,7 +133,7 @@
       background:
           linear-gradient(to bottom, rgba(10, 12, 16, 0.55) 0%, rgba(10, 12, 16, 0.2) 50%, rgba(10, 12, 16, 0.85) 100%),
           url('../metrialimg/IMG-20260414-WA0058.jpg') center/cover no-repeat;
-           filter: brightness(0.7)  contrast(1.1);
+           filter: brightness(0.6)   ;
      
   }
 
@@ -570,6 +571,7 @@
       padding: 5rem 4vw;
       overflow: hidden;
       position: relative;
+    
   }
 
   .experience-inner {
@@ -579,6 +581,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
+      
   }
 
   .experience-text h2 {
@@ -640,6 +643,7 @@
   /* ── TESTIMONIALS ── */
   .testimonials-section {
       background: var(--dark-2);
+     
   }
 
   .testimonials-grid {

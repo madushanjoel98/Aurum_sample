@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORGE | Personal Training</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet"/>
+
+  <style> 
+    :root {
+      --black: #0a0a0a;
+      --dark: #111111;
+      --card-bg: #161616;
+      --accent: #e8ff00;
+      --accent-dim: #c8dc00;
+      --white: #f5f5f0;
+      --muted: #888880;
+      --border: #2a2a2a;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      background: transparent;
+      padding: 1.5rem 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      transition: background 0.4s ease, padding 0.4s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .navbar.scrolled {
+      background: rgba(10,10,10,0.96);
+      padding: 1rem 0;
+      border-bottom-color: var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .navbar-brand {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 6px;
+      color: var(--accent) !important;
+    }
+    .navbar-brand span { color: var(--white); }
+    .nav-link {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--white) !important;
+      padding: 0.5rem 1rem !important;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--accent) !important; }
+    .navbar-toggler { border-color: var(--border); }
+    .navbar-toggler-icon {
+      background-image: url("");
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(232,255,0,0.06) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 79px, var(--border) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, var(--border) 80px);
+      background-size: cover, 80px 80px, 80px 80px;
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.4rem 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 14vw, 13rem);
+      line-height: 0.9;
+      letter-spacing: 2px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-title .accent { color: var(--accent); }
+    .hero-subtitle {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 1px;
+      max-width: 500px;
+      margin-top: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-cta {
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-forge {
+      background: var(--accent);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 2px solid var(--accent);
+      border-radius: 0;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-forge:hover {
+      background: transparent;
+      color: var(--accent);
+    }
+    .btn-forge-outline {
+      background: transparent;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border: 2px solid var(--border);
+      border-radius: 0;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-forge-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards;
+      flex-wrap: wrap;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+    .hero-photo {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      min-height: 600px;
+      opacity: 0;
+      animation: fadeIn 1s 0.5s forwards;
+    }
+    .hero-photo-inner {
+      width: 380px;
+      max-width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-photo-inner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(232,255,0,0.08) 0%, transparent 50%);
+    }
+    .hero-photo-placeholder {
+      font-size: 8rem;
+      opacity: 0.15;
+    }
+    .hero-photo-tag {
+      position: absolute;
+      bottom: -1px;
+      left: -1px;
+      background: var(--accent);
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+    }
+    .hero-photo-year {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 7rem 0; }
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      letter-spacing: 2px;
+      line-height: 0.95;
+    }
+    .section-line {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 1.5rem 0 2rem;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--dark); }
+    .about-img-wrap {
+      position: relative;
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+      opacity: 0.2;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-img::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 50%;
+      background: linear-gradient(transparent, rgba(232,255,0,0.05));
+    }
+    .about-cert {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--accent);
+      color: var(--black);
+      padding: 1.5rem;
+      width: 160px;
+      text-align: center;
+    }
+    .about-cert-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .about-cert-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+    .about-text { 
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #aaa8a0;
+    }
+    .about-certs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .cert-tag {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.9rem;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .cert-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--black); }
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      transition: all 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    .service-card:hover {
+      border-color: rgba(232,255,0,0.3);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { width: 100%; }
+    .service-icon {
+      width: 56px; height: 56px;
+      background: rgba(232,255,0,0.1);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.75rem;
+      font-size: 1.4rem;
+      color: var(--accent);
+      border: 1px solid rgba(232,255,0,0.2);
+    }
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+    .service-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ─── PACKAGES ─── */
+    #packages { background: var(--dark); }
+    .packages-intro { 
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .pkg-toggle {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .pkg-toggle label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .pkg-toggle label.active { color: var(--white); }
+    .toggle-switch {
+      width: 52px; height: 28px;
+      background: var(--border);
+      border-radius: 14px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .toggle-switch.on { background: var(--accent); }
+    .toggle-knob {
+      width: 22px; height: 22px;
+      background: var(--white);
+      border-radius: 50%;
+      position: absolute;
+      top: 3px; left: 3px;
+      transition: transform 0.2s;
+    }
+    .toggle-switch.on .toggle-knob {
+      transform: translateX(24px);
+      background: var(--black);
+    }
+    .pkg-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .pkg-card.featured {
+      border-color: var(--accent);
+      background: var(--black);
+    }
+    .pkg-card:hover:not(.featured) {
+      border-color: rgba(232,255,0,0.25);
+    }
+    .pkg-badge {
+      position: absolute;
+      top: -1px; right: 2rem;
+      background: var(--accent);
+      color: var(--black);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+    }
+    .pkg-tier {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .pkg-name {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .pkg-card.featured .pkg-name { color: var(--accent); }
+    .pkg-price-wrap { margin-bottom: 1.75rem; }
+    .pkg-price {
+      font-family: var(--font-display);
+      font-size: 3.5rem;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .pkg-price .currency {
+      font-size: 1.5rem;
+      vertical-align: top;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+    .pkg-price .period {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+    .pkg-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.75rem 0;
+    }
+    .pkg-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem;
+    }
+    .pkg-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      line-height: 1.5;
+    }
+    .pkg-features li i {
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+    .pkg-features li.disabled {
+      opacity: 0.35;
+    }
+    .pkg-features li.disabled i {
+      color: var(--muted);
+    }
+    .btn-pkg {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 1rem;
+      border: 2px solid var(--border);
+      color: var(--white);
+      transition: all 0.2s;
+    }
+    .btn-pkg:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .pkg-card.featured .btn-pkg {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--black);
+    }
+    .pkg-card.featured .btn-pkg:hover {
+      background: var(--accent-dim);
+    }
+
+    /* ─── TRANSFORMATIONS ─── */
+    #results { background: var(--black); }
+    .result-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .result-card:hover { transform: translateY(-5px); }
+    .result-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 260px;
+    }
+    .result-photo {
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      opacity: 0.2;
+      position: relative;
+    }
+    .result-photo-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: rgba(0,0,0,0.7);
+      color: var(--muted);
+      padding: 0.2rem 0.6rem;
+    }
+    .result-photo.after { background: rgba(232,255,0,0.04); }
+    .result-photo.after .result-photo-label { color: var(--accent); }
+    .result-info { padding: 1.5rem; }
+    .result-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+    .result-meta {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+    .result-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .result-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .result-stat-label {
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: var(--dark); overflow: hidden; }
+    .testimonial-card {
+      background: var(--black);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .testimonial-card:hover { border-color: rgba(232,255,0,0.2); }
+    .t-quote {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      color: var(--accent);
+      line-height: 0.5;
+      margin-bottom: 1.5rem;
+    }
+    .t-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #aaa8a0;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .t-stars {
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .t-author-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+    .t-author-meta {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .t-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--black); }
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 3rem;
+    }
+    .form-forge {
+      width: 100%;
+    }
+    .form-forge .form-group { margin-bottom: 1.5rem; }
+    .form-forge label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .form-forge input,
+    .form-forge select,
+    .form-forge textarea {
+      width: 100%;
+      background: var(--black);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      border-radius: 0;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .form-forge input:focus,
+    .form-forge select:focus,
+    .form-forge textarea:focus {
+      border-color: var(--accent);
+    }
+    .form-forge select option {
+      background: var(--card-bg);
+    }
+    .form-forge textarea { resize: vertical; min-height: 130px; }
+    .contact-info { padding: 1rem 0; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .contact-icon {
+      width: 48px; height: 48px;
+      background: rgba(232,255,0,0.1);
+      border: 1px solid rgba(232,255,0,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .contact-item-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+    .contact-item-val {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .social-links { display: flex; gap: 0.75rem; margin-top: 2.5rem; }
+    .social-btn {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted);
+      font-size: 1rem;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      letter-spacing: 5px;
+      color: var(--accent);
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── TICKER ─── */
+    .ticker-wrap {
+      background: var(--accent);
+      padding: 0.75rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker 20s linear infinite;
+    }
+    .ticker-item {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 4px;
+      color: var(--black);
+      padding: 0 3rem;
+    }
+    .ticker-item i { font-size: 0.5rem; vertical-align: middle; margin-right: 3rem; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── TOOLTIP ─── */
+    .forge-tooltip {
+      position: relative;
+    }
+    .forge-tooltip .tip {
+      display: none;
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--black);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      white-space: nowrap;
+      z-index: 10;
+    }
+    .forge-tooltip:hover .tip { display: block; }
+
+    /* ─── BACK TO TOP ─── */
+    #backToTop {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 48px; height: 48px;
+      background: var(--accent);
+      color: var(--black);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 999;
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+      border: none;
+    }
+    #backToTop:hover { transform: translateY(-3px); }
+
+    @media (max-width: 768px) {
+      .hero-photo { min-height: 300px; margin-bottom: 3rem; }
+      .hero-photo-inner { width: 280px; }
+      .about-cert { right: 0; bottom: -3rem; }
+      .pkg-card { margin-bottom: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav class="navbar navbar-expand-lg" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="#hero">FORGE<span>.</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+        <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+        <li class="nav-item ms-lg-2"><a class="btn-forge" href="#contact" style="font-size:0.7rem;padding:0.7rem 1.5rem;">Book Now</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center">
+      <div class="col-lg-7 order-lg-1 order-2">
+        <div class="hero-badge">Certified Personal Trainer · Est. 2016</div>
+        <h1 class="hero-title">
+          BUILD<br>
+          YOUR<br>
+          <span class="accent">BEST</span><br>
+          BODY.
+        </h1>
+        <p class="hero-subtitle">Elite training programs built around science, discipline, and your personal goals. No gimmicks — just results.</p>
+        <div class="hero-cta">
+          <a href="#packages" class="btn-forge">View Packages</a>
+          <a href="#about" class="btn-forge-outline">Meet Marcus</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Clients Trained</div>
+          </div>
+          <div>
+            <div class="stat-num">8</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="stat-num">97%</div>
+            <div class="stat-label">Goal Achievement</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 order-lg-2 order-1">
+        <div class="hero-photo">
+          <div class="hero-photo-inner">
+            <div class="hero-photo-placeholder"><img src="path/to/your/image.jpg" alt="Marcus Reid"></div>
+            <div class="hero-photo-year">2024</div>
+            <div class="hero-photo-tag">Marcus Reid · Head Trainer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TICKER ─── -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item"><i class="fa fa-bolt"></i> STRENGTH TRAINING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> FAT LOSS</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> MUSCLE BUILDING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> SPORT PERFORMANCE</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> NUTRITION COACHING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> ONLINE TRAINING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> STRENGTH TRAINING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> FAT LOSS</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> MUSCLE BUILDING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> SPORT PERFORMANCE</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> NUTRITION COACHING</span>
+    <span class="ticker-item"><i class="fa fa-bolt"></i> ONLINE TRAINING</span>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 reveal">
+        <div class="about-img-wrap mb-5 mb-lg-0">
+          <div class="about-img"><i class="fa fa-dumbbell"></i></div>
+          <div class="about-cert">
+            <div class="about-cert-num">12+</div>
+            <div class="about-cert-label">Certifications Held</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal">
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">I TURN<br>EFFORT INTO<br>RESULTS.</h2>
+        <div class="section-line"></div>
+        <p class="about-text mb-3">
+          I'm Marcus Reid — NSCA-certified strength coach and sports nutritionist with 8 years of transforming bodies and mindsets. My approach is rooted in biomechanics, progressive overload, and sustainable habit formation.
+        </p>
+        <p class="about-text">
+          Whether your goal is shredding fat, building lean muscle, or dominating your sport, I build a program around <em>your</em> biology, schedule, and lifestyle — not a one-size-fits-all template.
+        </p>
+        <div class="about-certs">
+          <span class="cert-tag">NSCA-CSCS</span>
+          <span class="cert-tag">NASM-CPT</span>
+          <span class="cert-tag">Precision Nutrition</span>
+          <span class="cert-tag">FMS Level 2</span>
+          <span class="cert-tag">USAW Weightlifting</span>
+          <span class="cert-tag">CPR / AED</span>
+        </div>
+        <div class="mt-4">
+          <a href="#contact" class="btn-forge">Start Your Journey</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section id="services">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-label">What I Offer</div>
+        <h2 class="section-title">TRAINING<br>SERVICES</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="col-lg-5 ms-auto d-flex align-items-end reveal">
+        <p class="about-text">Every service is personalised, science-backed, and designed to get you measurable results — faster than you thought possible.</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa fa-dumbbell"></i></div>
+          <h3 class="service-title">1-on-1 In-Person</h3>
+          <p class="service-desc">Fully supervised sessions at our private studio. Real-time form correction, progressive programming, and full accountability.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa fa-laptop"></i></div>
+          <h3 class="service-title">Online Coaching</h3>
+          <p class="service-desc">Train anywhere in the world with custom programming, video form reviews, and weekly check-ins via app.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa fa-users"></i></div>
+          <h3 class="service-title">Small Group (2–4)</h3>
+          <p class="service-desc">The energy of a team with the attention of personal training. Ideal for couples or friends with shared goals.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa fa-apple-alt"></i></div>
+          <h3 class="service-title">Nutrition Coaching</h3>
+          <p class="service-desc">Precision macro plans, food journals, and habit coaching. No crash diets — sustainable fuelling for your body type.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa fa-trophy"></i></div>
+          <h3 class="service-title">Athlete Performance</h3>
+          <p class="service-desc">Sport-specific strength, speed, and conditioning for competitive athletes looking to gain an edge.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa fa-heart-pulse"></i></div>
+          <h3 class="service-title">Rehab & Mobility</h3>
+          <p class="service-desc">Movement assessments, injury prevention protocols, and corrective exercise to keep you pain-free and performing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PACKAGES ─── -->
+<section id="packages">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-lg-7 reveal">
+        <div class="section-label">Investment</div>
+        <h2 class="section-title">TRAINING<br>PACKAGES</h2>
+        <div class="section-line"></div>
+        <p class="packages-intro">Choose the tier that fits your commitment level. All plans include a free strategy call and 30-day progress guarantee.</p>
+      </div>
+    </div>
+
+    <div class="pkg-toggle reveal">
+      <label id="label-monthly" class="active">Monthly</label>
+      <div class="toggle-switch" id="billingToggle">
+        <div class="toggle-knob"></div>
+      </div>
+      <label id="label-annual">Annual <span style="color:var(--accent);font-size:0.6rem;"> SAVE 20%</span></label>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- STARTER -->
+      <div class="col-lg-4 reveal">
+        <div class="pkg-card">
+          <div class="pkg-tier">Tier 01</div>
+          <div class="pkg-name">STARTER</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">
+              <span class="currency">$</span>
+              <span class="price-val" data-monthly="149" data-annual="119">149</span>
+              <span class="period"> / mo</span>
+            </div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fa fa-check"></i> 4 x in-person sessions/month</li>
+            <li><i class="fa fa-check"></i> Custom workout programme</li>
+            <li><i class="fa fa-check"></i> Initial fitness assessment</li>
+            <li><i class="fa fa-check"></i> Email support (48h response)</li>
+            <li><i class="fa fa-check"></i> Access to training app</li>
+            <li class="disabled"><i class="fa fa-xmark"></i> Nutrition plan</li>
+            <li class="disabled"><i class="fa fa-xmark"></i> Weekly check-in calls</li>
+            <li class="disabled"><i class="fa fa-xmark"></i> Body composition analysis</li>
+          </ul>
+          <a href="#contact" class="btn-pkg">Get Started</a>
+        </div>
+      </div>
+
+      <!-- PRO — FEATURED -->
+      <div class="col-lg-4 reveal">
+        <div class="pkg-card featured">
+          <div class="pkg-badge">Most Popular</div>
+          <div class="pkg-tier">Tier 02</div>
+          <div class="pkg-name">PRO</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">
+              <span class="currency">$</span>
+              <span class="price-val" data-monthly="299" data-annual="239">299</span>
+              <span class="period"> / mo</span>
+            </div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fa fa-check"></i> 8 x in-person sessions/month</li>
+            <li><i class="fa fa-check"></i> Advanced periodised programme</li>
+            <li><i class="fa fa-check"></i> Full nutrition & macro plan</li>
+            <li><i class="fa fa-check"></i> Weekly check-in calls (30 min)</li>
+            <li><i class="fa fa-check"></i> Body composition analysis</li>
+            <li><i class="fa fa-check"></i> Supplement recommendations</li>
+            <li><i class="fa fa-check"></i> Priority WhatsApp support</li>
+            <li class="disabled"><i class="fa fa-xmark"></i> Unlimited sessions</li>
+          </ul>
+          <a href="#contact" class="btn-pkg">Get Started</a>
+        </div>
+      </div>
+
+      <!-- ELITE -->
+      <div class="col-lg-4 reveal">
+        <div class="pkg-card">
+          <div class="pkg-tier">Tier 03</div>
+          <div class="pkg-name">ELITE</div>
+          <div class="pkg-price-wrap">
+            <div class="pkg-price">
+              <span class="currency">$</span>
+              <span class="price-val" data-monthly="499" data-annual="399">499</span>
+              <span class="period"> / mo</span>
+            </div>
+          </div>
+          <div class="pkg-divider"></div>
+          <ul class="pkg-features">
+            <li><i class="fa fa-check"></i> Unlimited in-person sessions</li>
+            <li><i class="fa fa-check"></i> Elite periodised programme</li>
+            <li><i class="fa fa-check"></i> Full nutrition coaching</li>
+            <li><i class="fa fa-check"></i> Daily check-ins & messaging</li>
+            <li><i class="fa fa-check"></i> Advanced body composition</li>
+            <li><i class="fa fa-check"></i> Blood work & recovery review</li>
+            <li><i class="fa fa-check"></i> 24/7 direct coach access</li>
+            <li><i class="fa fa-check"></i> Monthly progress photoshoot</li>
+          </ul>
+          <a href="#contact" class="btn-pkg">Get Started</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD-ONS -->
+    <div class="row mt-5 reveal">
+      <div class="col-12">
+        <div style="border:1px solid var(--border);padding:2rem;">
+          <div class="section-label mb-3">Add-Ons</div>
+          <div class="row g-3">
+            <div class="col-md-3">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa fa-plus-circle" style="color:var(--accent)"></i>
+                <div>
+                  <div style="font-size:0.85rem;font-weight:600;">Single Session</div>
+                  <div style="font-size:0.75rem;color:var(--muted);">$60 / session</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa fa-plus-circle" style="color:var(--accent)"></i>
+                <div>
+                  <div style="font-size:0.85rem;font-weight:600;">Nutrition Only</div>
+                  <div style="font-size:0.75rem;color:var(--muted);">$79 / month</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa fa-plus-circle" style="color:var(--accent)"></i>
+                <div>
+                  <div style="font-size:0.85rem;font-weight:600;">DEXA Scan Review</div>
+                  <div style="font-size:0.75rem;color:var(--muted);">$49 / session</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="d-flex align-items-center gap-2">
+                <i class="fa fa-plus-circle" style="color:var(--accent)"></i>
+                <div>
+                  <div style="font-size:0.85rem;font-weight:600;">Couple Training</div>
+                  <div style="font-size:0.75rem;color:var(--muted);">$199 / month extra</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESULTS ─── -->
+<section id="results">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-label">Client Transformations</div>
+        <h2 class="section-title">REAL<br>RESULTS.</h2>
+        <div class="section-line"></div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="result-card">
+          <div class="result-photos">
+            <div class="result-photo"><i class="fa fa-person"></i><span class="result-photo-label">Before</span></div>
+            <div class="result-photo after"><i class="fa fa-person"></i><span class="result-photo-label">After</span></div>
+          </div>
+          <div class="result-info">
+            <div class="result-name">James K.</div>
+            <div class="result-meta">12 weeks · PRO Package</div>
+            <div class="result-stats">
+              <div><div class="result-stat-num">-22</div><div class="result-stat-label">Lbs Lost</div></div>
+              <div><div class="result-stat-num">+8%</div><div class="result-stat-label">Muscle Gain</div></div>
+              <div><div class="result-stat-num">16</div><div class="result-stat-label">Weeks Total</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="result-card">
+          <div class="result-photos">
+            <div class="result-photo"><i class="fa fa-person-dress"></i><span class="result-photo-label">Before</span></div>
+            <div class="result-photo after"><i class="fa fa-person-dress"></i><span class="result-photo-label">After</span></div>
+          </div>
+          <div class="result-info">
+            <div class="result-name">Sarah M.</div>
+            <div class="result-meta">20 weeks · ELITE Package</div>
+            <div class="result-stats">
+              <div><div class="result-stat-num">-31</div><div class="result-stat-label">Lbs Lost</div></div>
+              <div><div class="result-stat-num">+12%</div><div class="result-stat-label">Strength</div></div>
+              <div><div class="result-stat-num">20</div><div class="result-stat-label">Weeks Total</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="result-card">
+          <div class="result-photos">
+            <div class="result-photo"><i class="fa fa-person"></i><span class="result-photo-label">Before</span></div>
+            <div class="result-photo after"><i class="fa fa-person"></i><span class="result-photo-label">After</span></div>
+          </div>
+          <div class="result-info">
+            <div class="result-name">David R.</div>
+            <div class="result-meta">8 weeks · STARTER Package</div>
+            <div class="result-stats">
+              <div><div class="result-stat-num">-14</div><div class="result-stat-label">Lbs Lost</div></div>
+              <div><div class="result-stat-num">+15%</div><div class="result-stat-label">Endurance</div></div>
+              <div><div class="result-stat-num">8</div><div class="result-stat-label">Weeks Total</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section id="testimonials">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-label">Client Reviews</div>
+        <h2 class="section-title">WHAT THEY<br>SAY.</h2>
+        <div class="section-line"></div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testimonial-card">
+          <div class="t-quote">"</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">Marcus completely changed how I think about training. I lost 25 pounds in 4 months and kept it off for over a year. The nutrition plan alone was worth every penny.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="t-avatar"><i class="fa fa-user"></i></div>
+            <div>
+              <div class="t-author-name">Jessica T.</div>
+              <div class="t-author-meta">PRO Package · 4 months</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testimonial-card">
+          <div class="t-quote">"</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">As a competitive cyclist, I needed sport-specific strength work. Marcus built a programme that improved my FTP by 18% in 10 weeks. Absolute game-changer.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="t-avatar"><i class="fa fa-user"></i></div>
+            <div>
+              <div class="t-author-name">Tom B.</div>
+              <div class="t-author-meta">ELITE Package · Athlete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testimonial-card">
+          <div class="t-quote">"</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">I was sceptical about online coaching but Marcus's weekly calls and app kept me fully accountable. I've never been in better shape at 42. Highly recommend.</p>
+          <div class="d-flex align-items-center gap-3">
+            <div class="t-avatar"><i class="fa fa-user"></i></div>
+            <div>
+              <div class="t-author-name">Lisa C.</div>
+              <div class="t-author-meta">Online Coaching · 6 months</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">BOOK A FREE<br>STRATEGY CALL.</h2>
+        <div class="section-line"></div>
+      </div>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-7 reveal">
+        <div class="contact-card">
+          <form class="form-forge" id="contactForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" placeholder="John" required/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" placeholder="Doe" required/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" placeholder="john@email.com" required/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" placeholder="+1 (555) 000-0000"/>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="package">Interested Package</label>
+                  <select id="package">
+                    <option value="" disabled selected>Select a package...</option>
+                    <option value="starter">Starter — $149/mo</option>
+                    <option value="pro">Pro — $299/mo</option>
+                    <option value="elite">Elite — $499/mo</option>
+                    <option value="online">Online Coaching</option>
+                    <option value="nutrition">Nutrition Only</option>
+                    <option value="single">Single Session</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="goals">Your Goals</label>
+                  <textarea id="goals" placeholder="Tell me about your fitness goals, current experience, and any injuries or limitations..."></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-forge w-100" style="cursor:pointer;border:none;">Send Message</button>
+              </div>
+            </div>
+          </form>
+          <div id="formSuccess" style="display:none;margin-top:1.5rem;padding:1rem;border:1px solid var(--accent);color:var(--accent);font-size:0.85rem;letter-spacing:1px;">
+            <i class="fa fa-check-circle me-2"></i> Message sent! I'll be in touch within 24 hours.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 reveal">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-map-pin"></i></div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-val">Downtown Fitness Studio<br><small style="color:var(--muted);font-size:0.85rem;">123 Iron Ave, New York, NY 10001</small></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-phone"></i></div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-val">+1 (212) 555-0147</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">marcus@forgefit.com</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-clock"></i></div>
+            <div>
+              <div class="contact-item-label">Studio Hours</div>
+              <div class="contact-item-val">Mon – Fri: 6AM – 9PM<br><small style="color:var(--muted);font-size:0.85rem;">Sat: 7AM – 5PM · Sun: Rest Day</small></div>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-btn forge-tooltip"><i class="fab fa-instagram"></i><span class="tip">Instagram</span></a>
+            <a href="#" class="social-btn forge-tooltip"><i class="fab fa-tiktok"></i><span class="tip">TikTok</span></a>
+            <a href="#" class="social-btn forge-tooltip"><i class="fab fa-youtube"></i><span class="tip">YouTube</span></a>
+            <a href="#" class="social-btn forge-tooltip"><i class="fab fa-facebook"></i><span class="tip">Facebook</span></a>
+            <a href="#" class="social-btn forge-tooltip"><i class="fab fa-linkedin"></i><span class="tip">LinkedIn</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="footer-brand">FORGE.</div>
+      </div>
+      <div class="col-md-4 text-md-center mb-3 mb-md-0">
+        <p class="footer-copy">© 2024 Marcus Reid Personal Training. All rights reserved.</p>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <a href="#hero" class="footer-copy text-decoration-none" style="color:var(--muted);">Back to Top ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="backToTop"><i class="fa fa-arrow-up"></i></button>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+$(document).ready(function () {
+
+  /* ─── NAVBAR SCROLL ─── */
+  $(window).on('scroll', function () {
+    if ($(this).scrollTop() > 60) {
+      $('#mainNav').addClass('scrolled');
+    } else {
+      $('#mainNav').removeClass('scrolled');
+    }
+
+    /* Back to top */
+    if ($(this).scrollTop() > 400) {
+      $('#backToTop').css('display', 'flex');
+    } else {
+      $('#backToTop').hide();
+    }
+  });
+
+  /* ─── SMOOTH SCROLL ─── */
+  $('a[href^="#"]').on('click', function (e) {
+    const target = $(this.hash);
+    if (target.length) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: target.offset().top - 80 }, 600, 'swing');
+      // Close mobile nav
+      $('.navbar-collapse').collapse('hide');
+    }
+  });
+
+  /* ─── BACK TO TOP ─── */
+  $('#backToTop').on('click', function () {
+    $('html, body').animate({ scrollTop: 0 }, 500);
+  });
+
+  /* ─── SCROLL REVEAL ─── */
+  function revealOnScroll() {
+    $('.reveal').each(function () {
+      const top = $(this).offset().top;
+      const winBottom = $(window).scrollTop() + $(window).height();
+      if (winBottom > top + 60) {
+        $(this).addClass('visible');
+      }
+    });
+  }
+  $(window).on('scroll', revealOnScroll);
+  revealOnScroll();
+
+  /* ─── BILLING TOGGLE ─── */
+  let isAnnual = false;
+
+  $('#billingToggle').on('click', function () {
+    isAnnual = !isAnnual;
+    $(this).toggleClass('on', isAnnual);
+    $('#label-monthly').toggleClass('active', !isAnnual);
+    $('#label-annual').toggleClass('active', isAnnual);
+
+    $('.price-val').each(function () {
+      const monthly = $(this).data('monthly');
+      const annual  = $(this).data('annual');
+      const target  = isAnnual ? annual : monthly;
+      const current = parseInt($(this).text());
+
+      $({ val: current }).animate({ val: target }, {
+        duration: 400,
+        step: function () {
+          $(this).closest('.price-val').length
+            ? null
+            : null;
+          const el = arguments[1].elem;
+          $(el.elem).text(Math.round(el.val));
+        },
+        progress: function (a, p, r) {
+          const el = this;
+          const now = Math.round(current + (target - current) * p);
+          // find original price-val
+        }
+      });
+
+      // Simple jQuery counter
+      let startVal = current;
+      const duration = 400;
+      const frameRate = 16;
+      const totalFrames = Math.round(duration / frameRate);
+      let frame = 0;
+      const $el = $(this);
+      const timer = setInterval(function () {
+        frame++;
+        const progress = frame / totalFrames;
+        const eased = progress < 0.5
+          ? 2 * progress * progress
+          : -1 + (4 - 2 * progress) * progress;
+        const val = Math.round(startVal + (target - startVal) * eased);
+        $el.text(val);
+        if (frame >= totalFrames) { clearInterval(timer); $el.text(target); }
+      }, frameRate);
+    });
+  });
+
+  /* ─── CONTACT FORM ─── */
+  $('#contactForm').on('submit', function (e) {
+    e.preventDefault();
+    const $btn = $(this).find('button[type="submit"]');
+    $btn.text('Sending...').prop('disabled', true);
+    setTimeout(function () {
+      $('#contactForm')[0].reset();
+      $btn.text('Send Message').prop('disabled', false);
+      $('#formSuccess').fadeIn(400);
+      setTimeout(function () { $('#formSuccess').fadeOut(400); }, 5000);
+    }, 1200);
+  });
+
+  /* ─── ACTIVE NAV LINK ─── */
+  $(window).on('scroll', function () {
+    const scrollPos = $(window).scrollTop() + 100;
+    $('section[id]').each(function () {
+      const top = $(this).offset().top;
+      const bottom = top + $(this).outerHeight();
+      const id = $(this).attr('id');
+      if (scrollPos >= top && scrollPos < bottom) {
+        $('.nav-link').removeClass('active').css('color', '');
+        $(`.nav-link[href="#${id}"]`).css('color', 'var(--accent)');
+      }
+    });
+  });
+
+});
+</script>
+
+</body>
+</html>
