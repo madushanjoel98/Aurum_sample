@@ -1120,3 +1120,25 @@
     color: white;
     border-radius: 0 0 50px 50px;
 }
+
+/* WhatsApp Floating Button CSS */
+
+#whatsapp-button {
+
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    z-index: 9999;
+
+}
+
+#whatsapp-button a img {
+border-radius: 100%;;
+    width: 60px; /* Adjust size as needed */
+
+    height: auto;
+
+}

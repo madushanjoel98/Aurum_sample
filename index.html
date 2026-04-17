@@ -17,6 +17,10 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="icon" href="/img/favicon.ico">
+      <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body>
@@ -44,9 +48,18 @@
             <a href="#contact" onclick="closeMenu()" style="color:var(--gold)!important">Book Now</a>
         </nav>
     </nav>
+<div id="whatsapp-button">
 
+  <a href="https://api.whatsapp.com/send?phone=94705556804" target="_blank">
+       
+
+      <img src="img/whatsapp.png" alt="WhatsApp" />
+
+  </a>
+
+</div>
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero ">
         <div class="hero-bg"></div>
 
         <div class="hero-content">
@@ -118,10 +131,10 @@
             <p>A collection of stunning photographs</p>
         </div>
 
-        <div class="container">
+        <div class="container animate__animated animate__zoomIn">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6 gallery-item">
+                <div class=" col-lg-4 col-md-6 gallery-item">
                     <img loading="lazy" src="metrialimg/IMG-20260414-WA0054.jpg" alt="Animals" class="img-fluid">
                 </div>
 
@@ -129,8 +142,8 @@
                     <img loading="lazy" src="metrialimg/IMG-20260414-WA0055.jpg" alt="Architecture" class="img-fluid">
                 </div>
 
-                <div class="col-lg-4 col-md-6 gallery-item">
-                    <img loading="lazy" src="metrialimg/IMG-20260414-WA0057.jpg" alt="Travel" class="img-fluid">
+                <div class="col-lg-4 col-md-6 gallery-item ">
+                    <img  loading="lazy" src="metrialimg/IMG-20260414-WA0057.jpg" alt="Travel" class="img-fluid">
                 </div>
                 <div class="col-lg-4 col-md-6 gallery-item">
                     <img loading="lazy" src="metrialimg/IMG-20260414-WA0059.jpg" alt="Mountains" class="img-fluid">
@@ -505,6 +518,18 @@
             if (type === 'success') setTimeout(() => el.style.display = 'none', 7000);
         }
     </script>
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var whatsappButton = document.getElementById('whatsapp-button');
+
+        whatsappButton.style.bottom = '30px'; // Change the distance from bottom as needed
+
+    });
+
+</script>
 </body>
 
 </html>
