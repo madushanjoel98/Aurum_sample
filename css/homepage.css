@@ -1038,22 +1038,23 @@
           display: none;
       }
 
-      .nav-mobile.open {
-          display: flex;
-          flex-direction: column;
-          background: rgba(10, 12, 16, 0.97);
-          position: fixed;
-          inset: 0;
-          z-index: 999;
-          padding: 6rem 2rem 2rem;
-          gap: 1.5rem;
-      }
+     .nav-mobile.open {
+        display: flex;
+        flex-direction: column;
+        background: rgba(10, 10, 10, 0.97);
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        padding: 6rem 0.5rem 2rem;
+    }
 
       .nav-mobile.open a {
           color: var(--text);
           text-decoration: none;
           font-size: 1.4rem;
           font-weight: 600;
+        background: rgba(10, 10, 10, 0.97);
+          
       }
 
       .hamburger {
