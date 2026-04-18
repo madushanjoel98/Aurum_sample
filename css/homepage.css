@@ -20,12 +20,14 @@
       padding: 0;
       box-sizing: border-box;
   }
-/* 1. Define the font face */
-@font-face {
-    font-family: 'SephoraHayden';
-    src: url('../fonts/adline.ttf') format('truetype'); /* Path to your file */
-    
-}
+
+  /* 1. Define the font face */
+  @font-face {
+      font-family: 'SephoraHayden';
+      src: url('../fonts/adline.ttf') format('truetype');
+      /* Path to your file */
+
+  }
 
   html {
       scroll-behavior: smooth;
@@ -65,15 +67,15 @@
   }
 
   .nav-logo {
-    
-        font-family: SephoraHayden;
-        font-size: 2.6rem;
-      
-        font-weight: 8;
-        color: var(--gold);
-        text-decoration: none;
-        letter-spacing: -0.05em;
-       
+
+      font-family: SephoraHayden;
+      font-size: 2.6rem;
+
+      font-weight: 8;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: -0.05em;
+
   }
 
   .nav-links {
@@ -124,6 +126,7 @@
   .nav-mobile {
       display: none;
   }
+
   /* ── HERO ── */
   .hero {
       min-height: 100vh;
@@ -131,16 +134,17 @@
       display: flex;
       align-items: center;
       overflow: hidden;
-     padding-bottom: 100px;
+      padding-bottom: 100px;
   }
+
   .hero-bg {
       position: absolute;
       inset: 0;
       background:
           linear-gradient(to bottom, rgba(10, 12, 16, 0.55) 0%, rgba(10, 12, 16, 0.2) 50%, rgba(10, 12, 16, 0.85) 100%),
           url('../metrialimg/IMG-20260414-WA0058.jpg') center/cover no-repeat;
-           filter: brightness(0.6)   ;
-     
+      filter: brightness(0.6);
+
   }
 
   .hero-content {
@@ -169,8 +173,8 @@
 
   .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3.2rem, 5vw, 6.5rem);
-      font-weight: 800;
+      font-size: 65px;
+      font-weight: 3;
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
@@ -577,7 +581,7 @@
       padding: 5rem 4vw;
       overflow: hidden;
       position: relative;
-    
+
   }
 
   .experience-inner {
@@ -587,7 +591,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
-      
+
   }
 
   .experience-text h2 {
@@ -649,7 +653,7 @@
   /* ── TESTIMONIALS ── */
   .testimonials-section {
       background: var(--dark-2);
-     
+
   }
 
   .testimonials-grid {
@@ -1038,23 +1042,23 @@
           display: none;
       }
 
-     .nav-mobile.open {
-        display: flex;
-        flex-direction: column;
-        background: rgba(10, 10, 10, 0.97);
-        position: fixed;
-        inset: 0;
-        z-index: 999;
-        padding: 6rem 0.5rem 2rem;
-    }
+      .nav-mobile.open {
+          display: flex;
+          flex-direction: column;
+          background: rgba(10, 10, 10, 0.97);
+          position: fixed;
+          inset: 0;
+          z-index: 999;
+          padding: 6rem 0.5rem 2rem;
+      }
 
       .nav-mobile.open a {
           color: var(--text);
           text-decoration: none;
           font-size: 1.4rem;
           font-weight: 600;
-        background: rgba(10, 10, 10, 0.97);
-          
+          background: rgba(10, 10, 10, 0.97);
+
       }
 
       .hamburger {
@@ -1100,48 +1104,50 @@
   }
 
   .gallery-item {
-    margin-bottom: 30px;
-    transition: transform 0.3s ease;
-}
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+  }
 
-.gallery-item:hover {
-    transform: scale(1.03);
-}
+  .gallery-item:hover {
+      transform: scale(1.03);
+  }
 
-.gallery-item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-.gallery-title {
-    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-    padding: 40px 0;
-    margin-bottom: 40px;
-    color: white;
-    border-radius: 0 0 50px 50px;
-}
+  .gallery-title {
+      background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+      padding: 40px 0;
+      margin-bottom: 40px;
+      color: white;
+      border-radius: 0 0 50px 50px;
+  }
 
-/* WhatsApp Floating Button CSS */
+  /* WhatsApp Floating Button CSS */
 
-#whatsapp-button {
+  #whatsapp-button {
 
-    position: fixed;
+      position: fixed;
 
-    bottom: 20px;
+      bottom: 20px;
 
-    right: 20px;
+      right: 20px;
 
-    z-index: 9999;
+      z-index: 9999;
 
-}
+  }
 
-#whatsapp-button a img {
-border-radius: 100%;;
-    width: 60px; /* Adjust size as needed */
+  #whatsapp-button a img {
+      border-radius: 100%;
+      ;
+      width: 60px;
+      /* Adjust size as needed */
 
-    height: auto;
+      height: auto;
 
-}
+  }
