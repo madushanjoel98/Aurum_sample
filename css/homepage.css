@@ -24,7 +24,7 @@
   /* 1. Define the font face */
   @font-face {
       font-family: 'SephoraHayden';
-      src: url('../fonts/lamonarch.ttf') format('truetype');
+      src: url('../fonts/cinzel/Cinzel-Regular.otf') format('truetype');
       /* Path to your file */
 
   }
@@ -69,7 +69,7 @@
   .nav-logo {
 
       font-family: SephoraHayden;
-      font-size: 3rem;
+      font-size: 2.5rem;
 
       font-weight: 800;
       color: var(--gold);
